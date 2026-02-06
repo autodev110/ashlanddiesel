@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Modern Industrial Palette */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  /* Brand Colors */
+  --diesel-yellow: #FFCD11;
+  /* Caterpillar-ish */
+  --diesel-red: #D0202E;
+  /* Cummins-ish */
+  --industrial-gray: #1a1a1a;
+
+  /* UI Accents */
+  --card: #141414;
+  --border: #262626;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-diesel-yellow: var(--diesel-yellow);
+  --color-diesel-red: var(--diesel-red);
+  --color-industrial-gray: var(--industrial-gray);
+  --color-card: var(--card);
+  --color-border: var(--border);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Global Noise Texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 205, 17, 0.3);
+  }
 }
