@@ -75,8 +75,13 @@ export default function RootLayout({
               </ul>
             </div>
           </div>
-          <div className="max-w-7xl mx-auto mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 text-center text-xs text-gray-600">
-            © {new Date().getFullYear()} Ashland Diesel Engines, Inc. All rights reserved.
+          <div className="max-w-7xl mx-auto mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 text-center text-xs text-gray-600 space-y-2">
+            <div className="flex justify-center gap-4">
+              <Link href="/privacy" className="hover:text-gray-400 transition-colors">Privacy Policy</Link>
+              <span>|</span>
+              <Link href="/terms" className="hover:text-gray-400 transition-colors">Terms of Service</Link>
+            </div>
+            <p>© {new Date().getFullYear()} Ashland Diesel Engines, Inc. All rights reserved.</p>
           </div>
         </footer>
       </body>
