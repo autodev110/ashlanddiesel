@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { LogoStitch } from "@/components/ui/LogoStitch";
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 
 const navLinks = [
     ["About Us", "/about"],
@@ -33,7 +33,7 @@ export function Header() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex gap-8">
+                <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map(([label, href]) => (
                         <Link
                             key={href}
@@ -44,6 +44,13 @@ export function Header() {
                             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-diesel-yellow transition-all duration-300 group-hover:w-full" />
                         </Link>
                     ))}
+                    <Link
+                        href="/quote"
+                        className="ml-2 px-5 py-2 bg-diesel-yellow text-black text-sm font-bold uppercase tracking-wide rounded hover:bg-[#ffe066] transition-all flex items-center gap-2"
+                    >
+                        <FileText className="w-3.5 h-3.5" />
+                        Get a Quote
+                    </Link>
                 </nav>
 
                 {/* Mobile toggle */}
@@ -69,6 +76,14 @@ export function Header() {
                             {label}
                         </Link>
                     ))}
+                    <Link
+                        href="/quote"
+                        onClick={() => setOpen(false)}
+                        className="block mt-3 py-3 px-4 bg-diesel-yellow text-black text-sm font-bold uppercase tracking-widest text-center rounded flex items-center justify-center gap-2"
+                    >
+                        <FileText className="w-4 h-4" />
+                        Get a Quote
+                    </Link>
                     <div className="pt-3 text-xs text-gray-500 space-y-1">
                         <p>(570) 875-2300</p>
                         <p>32 Lehigh Street, Ashland, PA 17921</p>

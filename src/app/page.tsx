@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Wrench, Settings, Truck, Award, Phone } from "lucide-react";
+import { ArrowRight, Wrench, Settings, Truck, Award, Phone, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -99,6 +99,37 @@ export default function Home() {
             />
           </div>
         </div>
+      </section>
+
+      {/* CTA - Get Your Quote */}
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-diesel-yellow/10 via-diesel-yellow/5 to-diesel-yellow/10" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="relative z-10 max-w-3xl mx-auto px-6 text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-diesel-yellow/20 bg-diesel-yellow/5 text-diesel-yellow text-xs font-bold uppercase tracking-widest mb-6">
+            <FileText className="w-3.5 h-3.5" /> Free Estimate
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tight mb-4">
+            Get Your Quote{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-diesel-yellow to-[#ffe066]">Now</span>
+          </h2>
+          <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto mb-8">
+            Tell us about your project and we&apos;ll get back to you with a detailed estimate. Fast turnaround, no obligation.
+          </p>
+          <Link
+            href="/quote"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-diesel-yellow text-black font-bold uppercase tracking-wide text-sm rounded hover:bg-[#ffe066] transition-all group"
+          >
+            Request a Quote
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
       </section>
 
       {/* Brand Partners */}
